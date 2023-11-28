@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-scanner-deployment
+  namespace: restricted
+  labels:
+    app: kube-scanner
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kube-scanner
+  template:
+    metadata:
+      labels:
+        app: kube-scanner
+    spec:
+      containers:
+      - name: kube-scanner
+        image: siddharth67/kubescan-scanner-ui
+        ports:
+        - containerPort: 80
