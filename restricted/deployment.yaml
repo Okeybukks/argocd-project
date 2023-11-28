@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: kube-scanner
-        image: achebeh/factual:latest
+        image: achebeh/factual
         ports:
         - containerPort: 8081
