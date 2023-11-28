@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: kube-scanner
-        image: siddharth67/kubescan-scanner-ui
+        image: achebeh/factual:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8081
