@@ -6,7 +6,7 @@ metadata:
   labels:
     app: solar-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: solar-app
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: solar-app
-        image: siddharth67/solar-system:v9
+        image: siddharth67/solar-system:v3
         ports:
         - containerPort: 80
