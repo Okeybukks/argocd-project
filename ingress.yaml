@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: solar-app-ingress
+  namespace: solar-app
+  annotations:
+    cert-manager.io/cluster-issuer: clusterissuer-trialoc92
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: solarapp.achebeh.site
+    http:
+      paths:
+      - backend:
+          service:
+            name: solar-app-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - solarapp.achebeh.site
+    secretName: solarapp-tls
