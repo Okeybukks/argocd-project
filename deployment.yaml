@@ -7,9 +7,9 @@ metadata:
     app: solar-app
 spec:
   strategy:
-   type: RollingUpdate
-   rollingUpdate:
-     maxUnavailable: 0
+   type: Recreate
+   # rollingUpdate:
+   #   maxUnavailable: 0
   replicas: 1
   selector:
     matchLabels:
